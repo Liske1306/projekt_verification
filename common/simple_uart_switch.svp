@@ -18,7 +18,7 @@
 //   - Functional  mode: B0=target address, B1=data. Forward both bytes to selected output.
 //
 // Error handling:
-//   - two UARRT packets are ignored when either is incorrect: start_bit, parity_bit, stop_bit
+//   - two UART packets are ignored when either is incorrect: start_bit, parity_bit, stop_bit
 //
 // Last modified: 2025-10-10, initial version.
 
