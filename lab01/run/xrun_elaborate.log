@@ -1,0 +1,52 @@
+TOOL:	xrun(64)	24.09-s005: Started on Oct 15, 2025 at 00:07:43 CEST
+xrun
+	-elaborate
+	-l xrun_elaborate.log
+	-F ../tb/tb.f
+		../../common/simple_uart_switch.sv
+		simple_uart_switch_tb.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		top
+
+	Extracting FSMs for coverage:
+		worklib.top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Generating native compiled code:
+		worklib.simple_switch_uart:sv <0x48f9a7c1>
+			streams:  13, words: 15555
+		worklib.top:sv <0x547a1edc>
+			streams:  14, words: 28418
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              2       2
+		Registers:           53      53
+		Scalar wires:        10       -
+		Always blocks:        3       3
+		Initial blocks:       4       4
+		Final blocks:         1       1
+		Cont. assignments:    1       2
+		Pseudo assignments:   4       -
+	Writing initial simulation snapshot: worklib.top:sv
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 15, 2025 at 00:07:44 CEST  (total: 00:00:01)

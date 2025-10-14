@@ -1,0 +1,279 @@
+TOOL:	xrun(64)	24.09-s005: Started on Oct 15, 2025 at 00:07:44 CEST
+xrun
+	-F ../tb/tb.f
+		../../common/simple_uart_switch.sv
+		simple_uart_switch_tb.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+	+UVM_TESTNAME=lab01
+	-l xrun_test_lab01.log
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		top
+
+	Extracting FSMs for coverage:
+		worklib.top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              2       2
+		Registers:           53      53
+		Scalar wires:        10       -
+		Always blocks:        3       3
+		Initial blocks:       4       4
+		Final blocks:         1       1
+		Cont. assignments:    1       2
+		Pseudo assignments:   4       -
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/xcelium/files/xmsimrc
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> run
+start
+-------------Sending packet-------------
+packet 0= 00000001101, packet 1= 01000000101
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+------------End packet 0-------------
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+------------End packet 1-------------
+-------------Sending packet-------------
+packet 0= 00000010011, packet 1= 00000000001
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+------------End packet 0-------------
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+------------End packet 1-------------
+-------------Sending packet-------------
+packet 0= 00000001101, packet 1= 00001010111
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+------------End packet 0-------------
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+19990 Clock cycles elapsed: 1000
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+------------End packet 1-------------
+-------------Sending packet-------------
+packet 0= 00000010011, packet 1= 00000000111
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 0
+sin= 0, sout0= 1, sout1= 0
+sin= 0, sout0= 1, sout1= 0
+sin= 0, sout0= 1, sout1= 0
+sin= 0, sout0= 1, sout1= 0
+sin= 1, sout0= 1, sout1= 0
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 0
+sin= 1, sout0= 1, sout1= 1
+------------End packet 0-------------
+sin= 0, sout0= 1, sout1= 0
+sin= 0, sout0= 1, sout1= 0
+sin= 0, sout0= 1, sout1= 0
+sin= 0, sout0= 1, sout1= 0
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 0
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 0
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+------------End packet 1-------------
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+39990 Clock cycles elapsed: 2000
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+59990 Clock cycles elapsed: 3000
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+finish
+[1;30m[102m-----------------------------------
+----------- Test PASSED -----------
+-----------------------------------[0m
+
+Simulation complete via $finish(1) at time 60790 NS + 0
+../tb/simple_uart_switch_tb.sv:195         $finish;
+xcelium> exit
+See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  top(top)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_71474c13_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_71474c13_00000000.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 15, 2025 at 00:07:47 CEST  (total: 00:00:03)

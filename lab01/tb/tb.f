@@ -1,2 +1,2 @@
-../common/simple_uart_switch.svp
-simple_uart_switch_tb.svp
+../../common/simple_uart_switch.sv
+simple_uart_switch_tb.sv

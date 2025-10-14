@@ -1,0 +1,213 @@
+TOOL:	xrun(64)	24.09-s005: Started on Oct 14, 2025 at 23:26:22 CEST
+xrun
+	-F ../tb/tb.f
+		../../common/simple_uart_switch.sv
+		simple_uart_switch_tb.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs_gui
+	+access+r
+	+gui
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+	+UVM_TESTNAME=lab01
+	-l xrun_gui.log
+	-s
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+xcelium> 
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/xcelium/files/xmsimrc
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> 
+-------------------------------------
+Relinquished control to SimVision...
+# Restoring simulation environment...
+xcelium> input -quiet .reinvoke.sim
+xcelium> file delete .reinvoke.sim
+xcelium> probe -create -shm top.DUT.sin top.DUT.rst_n top.DUT.prog
+Created probe 3
+xcelium> run
+start
+packet 0= 00000001101, packet 1= 00000000111
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+packet 0= 00000001101, packet 1= 00000000111
+-----------------------------------
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 0, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+packet 0= 00000001101, packet 1= 00000000111
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 1, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+sin= 1, sout0= 0, sout1= 1
+finish
+[1;30m[102m-----------------------------------
+----------- Test PASSED -----------
+-----------------------------------[0m
+
+Simulation complete via $finish(1) at time 16090 NS + 0
+../tb/simple_uart_switch_tb.sv:206         $finish;
+xcelium> run
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> run
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> ^C
+xcelium> exit
+See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  top(top)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_2ea32b4a_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_2ea32b4a_00000000.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 14, 2025 at 23:30:01 CEST  (total: 00:03:39)
