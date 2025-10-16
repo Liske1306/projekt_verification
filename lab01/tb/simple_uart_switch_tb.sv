@@ -24,6 +24,16 @@ module top;
     // Type definitions
     //------------------------------------------------------------------------------
     
+    typedef struct {
+        bit [10:0] packet_0;
+        bit [10:0] packet_1;
+        time       timestamp;
+        logic      port;
+    } uart_packet_sent;
+      
+    uart_packet_sent uart_good_sent[$]; // queue of sent packages that should appear on output
+    uart_packet_sent uart_error_found[$]; // queue of packages that should NOT appear on output
+
     typedef enum bit {
         TEST_PASSED,
         TEST_FAILED
@@ -37,7 +47,9 @@ module top;
         COLOR_BLUE_ON_WHITE,
         COLOR_DEFAULT
     } print_color_t;
-    
+
+    localparam int DEBUG = 1;
+
     //------------------------------------------------------------------------------
     // Local variables
     //------------------------------------------------------------------------------
@@ -67,19 +79,7 @@ module top;
             clk = ~clk;
         end
     end
-    
-    // timestamp monitor
-    initial begin
-        longint clk_counter;
-        clk_counter = 0;
-        forever begin
-            @(posedge clk) clk_counter++;
-            if(clk_counter % 1000 == 0) begin
-                $display("%0t Clock cycles elapsed: %0d", $time, clk_counter);
-            end
-        end
-    end
-    
+        
     //------------------------------------------------------------------------------
     // Tester
     //------------------------------------------------------------------------------
@@ -136,22 +136,103 @@ module top;
         input logic [10:0] packet_1
         ); 
         begin
-        $display("-------------Sending packet-------------");
-        $display("packet 0= %011b, packet 1= %011b",packet_0, packet_1);
-        foreach(packet_0[i]) begin
-            sin = packet_0[i];
-            $display("sin= %d, sout0= %0d, sout1= %0d",sin,sout0, sout1);
-            repeat (16) @(posedge clk);
-        end
-        $display("------------End packet 0-------------");
-        foreach(packet_1[i]) begin
-            sin = packet_1[i];
-            $display("sin= %d, sout0= %0d, sout1= %0d",sin,sout0, sout1);
-            repeat (16) @(posedge clk);
-        end
-        $display("------------End packet 1-------------");
+            if(DEBUG == 1)
+                $display("packet 0= %011b, packet 1= %011b",packet_0, packet_1);
+            foreach(packet_0[i]) begin
+                sin = packet_0[i];
+                repeat (16) @(posedge clk);
+            end
+            foreach(packet_1[i]) begin
+                sin = packet_1[i];
+                repeat (16) @(posedge clk);
+            end
         end
     endtask
+
+    //------------------------
+    //Output checker
+    initial begin : output_check
+        integer i;
+        integer queue_index[$];
+        uart_packet_sent temp_packet;
+        forever begin
+            @(negedge sout0 or negedge sout1);
+            temp_packet.timestamp=$time;    //get time of the start of packet
+            if(sout0==0 && sout1==0) begin  //check which port is active (err if both or none)
+                temp_packet.port=1'bx;
+                temp_packet.packet_0=11'bx;
+                temp_packet.packet_1=11'bx;
+            end
+            else if(sout0==0) begin 
+                temp_packet.port=0; //save data from sout0
+                repeat(8) @(posedge clk);
+                temp_packet.packet_0[0]=sout0;
+                for (i=1; i<=10; i=i+1) begin 
+                    repeat(16) @(posedge clk);
+                    temp_packet.packet_0[i]=sout0;
+                end
+
+                for (i=0; i<=10; i=i+1) begin 
+                    repeat(16) @(posedge clk);
+                    temp_packet.packet_1[i]=sout0;
+                end
+            end
+            else if(sout1==0) begin
+                temp_packet.port=1; //save data from sout1
+                repeat(8) @(posedge clk);
+                temp_packet.packet_0[0]=sout1;
+                for (i=1; i<=10; i=i+1) begin 
+                    repeat(16) @(posedge clk);
+                    temp_packet.packet_0[i]=sout1;
+                end
+
+                for (i=0; i<=10; i=i+1) begin 
+                    repeat(16) @(posedge clk);
+                    temp_packet.packet_1[i]=sout1;
+                end
+            end
+            else begin
+                temp_packet.port=1'bx;
+                temp_packet.packet_0=11'bx;
+                temp_packet.packet_1=11'bx;
+            end
+
+            //check if the packet should be here
+            queue_index = uart_good_sent.find_index() with((item.packet_0==temp_packet.packet_0) && (item.packet_1==temp_packet.packet_1) && (item.timestamp==temp_packet.timestamp) && (item.port==temp_packet.port));
+            if(queue_index.size() > 0)begin 
+                uart_good_sent.delete(queue_index[0]);
+            end
+            else begin
+                uart_error_found.push_front(temp_packet);
+            end
+        end
+    end : output_check
+
+
+    //------------------------
+    //Display output (debug)
+    initial begin : display_uart
+        integer i;
+        if(DEBUG == 1)
+            forever begin
+                @(negedge sout0 or negedge sout1);
+                $display("+++++++++++++Packet found+++++++++++++");
+                repeat(8) @(posedge clk);
+                $display("sout0= %0d, sout1= %0d", sout0, sout1);
+
+                for (i=0; i<10; i=i+1) begin 
+                    repeat(16) @(posedge clk);
+                    $display("sout0= %0d, sout1= %0d", sout0, sout1);
+                end
+                $display("-------------End of packet0-------------");
+
+                for (i=0; i<11; i=i+1) begin 
+                    repeat(16) @(posedge clk);
+                    $display("sout0= %0d, sout1= %0d", sout0, sout1);
+                end
+                $display("-------------End of packet1-------------");
+            end
+    end : display_uart
 
     //------------------------
     // Tester main
@@ -160,38 +241,32 @@ module top;
         logic [10:0] packet_0;
         logic [10:0] packet_1;
         
-        $display("start");
         sin = 1;
         prog = 1;
         rst_n = 0;
-        packet_0 = 11'b00000001101; //address = 3
-        packet_1 = 11'b01000000101; //port = 1
+        packet_0 = 11'b01111111101; //address
+        packet_1 = 11'b01000000011; //port = 1
 
         repeat(32)@(posedge clk);
         rst_n = 1;
 
         send_uart(packet_0, packet_1);//address to sout 1
 
-        packet_0 = 11'b00000010011; //address = 4
+        packet_0 = 11'b01000000101; //address
         packet_1 = 11'b00000000001; //port = 0
 
         send_uart(packet_0, packet_1);//address to sout 0 
 
         prog = 0;
 
-        packet_0 = 11'b00000001101; //address = 3
-        packet_1 = 11'b00001010111; //data (port1)
+        packet_0 = 11'b01111111101; //address
+        packet_1 = 11'b01010100011; //data na port = 1
         send_uart(packet_0, packet_1);
 
-        packet_0 = 11'b00000010011; //address = 4
-        packet_1 = 11'b00000000111; //data (port0)
+        packet_0 = 11'b01000000101; //address
+        packet_1 = 11'b01111111101; //data na port = 0
         send_uart(packet_0, packet_1);
-
-        repeat (100) begin 
-            $display("sin= %d, sout0= %0d, sout1= %0d",sin,sout0, sout1);
-            repeat (16) @(posedge clk);
-        end
-        $display("finish");
+        repeat(50) repeat (16) @(posedge clk);
         $finish;
     end : main
     

@@ -27,4 +27,3 @@ xrun_covfile.txt
 +UVM_TESTNAME=lab01
 -l
 xrun_gui.log
--s

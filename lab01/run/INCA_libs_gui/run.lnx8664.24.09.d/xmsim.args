@@ -40,14 +40,13 @@ SAWSTP
 -NOCOPYRIGHT
 -COVOVERWRITE
 +UVM_TESTNAME=lab01
--TCL
 -MESSAGES
 -SV_LIB
 /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmdpi.so
 +EMGRLOG
 xrun_gui.log
 -XLSTIME
-1760477182
+1760634451
 -XLKEEP
 -XLMODE
 ./INCA_libs_gui/run.lnx8664.24.09.d

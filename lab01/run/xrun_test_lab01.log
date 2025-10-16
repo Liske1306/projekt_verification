@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Oct 15, 2025 at 00:07:44 CEST
+TOOL:	xrun(64)	24.09-s005: Started on Oct 16, 2025 at 23:30:47 CEST
 xrun
 	-F ../tb/tb.f
 		../../common/simple_uart_switch.sv
@@ -43,227 +43,78 @@ Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/
 		Initial blocks:       4       4
 		Final blocks:         1       1
 		Cont. assignments:    1       2
-		Pseudo assignments:   4       -
+		Pseudo assignments:   3       -
 	Writing initial simulation snapshot: worklib.top:sv
 Loading snapshot worklib.top:sv .................... Done
 xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/xcelium/files/xmsimrc
 xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
 xcelium> run
-start
--------------Sending packet-------------
-packet 0= 00000001101, packet 1= 01000000101
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 0-------------
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 1-------------
--------------Sending packet-------------
-packet 0= 00000010011, packet 1= 00000000001
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 0-------------
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 1-------------
--------------Sending packet-------------
-packet 0= 00000001101, packet 1= 00001010111
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 0-------------
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-19990 Clock cycles elapsed: 1000
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 1-------------
--------------Sending packet-------------
-packet 0= 00000010011, packet 1= 00000000111
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 0
-sin= 1, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 0
-sin= 1, sout0= 1, sout1= 1
-------------End packet 0-------------
-sin= 0, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 0
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 1-------------
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-39990 Clock cycles elapsed: 2000
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-59990 Clock cycles elapsed: 3000
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-finish
+packet 0= 01111111101, packet 1= 01000000011
+time: 7670
+packet 0= 01000000101, packet 1= 00000000001
+time: 14710
+packet 0= 01111111101, packet 1= 01010100011
+time: 21750
+packet 0= 01000000101, packet 1= 01111111101
+time_rec:21750
++++++++++++++Packet found+++++++++++++
+sout0= 1, sout1= 0
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 0
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 1, sout1= 0
+sout0= 1, sout1= 1
+sout0= 1, sout1= 0
+sout0= 1, sout1= 1
+sout0= 1, sout1= 0
+sout0= 1, sout1= 1
+sout0= 1, sout1= 0
+sout0= 1, sout1= 0
+sout0= 1, sout1= 0
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+time: 28790
+time_rec:28790
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
 [1;30m[102m-----------------------------------
 ----------- Test PASSED -----------
 -----------------------------------[0m
 
-Simulation complete via $finish(1) at time 60790 NS + 0
-../tb/simple_uart_switch_tb.sv:195         $finish;
+Simulation complete via $finish(1) at time 44790 NS + 0
+../tb/simple_uart_switch_tb.sv:202         $finish;
 xcelium> exit
 See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
 
@@ -274,6 +125,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_71474c13_00000000.ucm
-  data               :  ./cov_work/scope/test/icc_71474c13_00000000.ucd
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 15, 2025 at 00:07:47 CEST  (total: 00:00:03)
+  model(design data) :  ./cov_work/scope/icc_54e0baeb_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_54e0baeb_00000000.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 16, 2025 at 23:30:49 CEST  (total: 00:00:02)

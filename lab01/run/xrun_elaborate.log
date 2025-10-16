@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Oct 15, 2025 at 00:07:43 CEST
+TOOL:	xrun(64)	24.09-s005: Started on Oct 16, 2025 at 23:30:46 CEST
 xrun
 	-elaborate
 	-l xrun_elaborate.log
@@ -33,8 +33,8 @@ xrun
 	Generating native compiled code:
 		worklib.simple_switch_uart:sv <0x48f9a7c1>
 			streams:  13, words: 15555
-		worklib.top:sv <0x547a1edc>
-			streams:  14, words: 28418
+		worklib.top:sv <0x704afc48>
+			streams:  13, words: 30468
 	Building instance specific data structures.
 	Performing constant object marking (COM) analysis.
 	Loading native compiled code:     .................... Done
@@ -47,6 +47,6 @@ xrun
 		Initial blocks:       4       4
 		Final blocks:         1       1
 		Cont. assignments:    1       2
-		Pseudo assignments:   4       -
+		Pseudo assignments:   3       -
 	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 15, 2025 at 00:07:44 CEST  (total: 00:00:01)
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 16, 2025 at 23:30:47 CEST  (total: 00:00:01)
