@@ -30,7 +30,13 @@ module top;
         time       timestamp;
         logic      port;
     } uart_packet_sent;
-      
+
+    typedef struct {
+        logic [10:0] address;
+        logic        port;
+    } address_port;
+    
+    address_port addr_port_table[$]; // table of address to ports
     uart_packet_sent uart_good_sent[$]; // queue of sent packages that should appear on output
     uart_packet_sent uart_error_found[$]; // queue of packages that should NOT appear on output
 
@@ -38,6 +44,11 @@ module top;
         TEST_PASSED,
         TEST_FAILED
     } test_result_t;
+
+    typedef enum bit {
+        FORWARD,
+        NOT_FORWARD
+    } packet_forw_t;
     
     typedef enum {
         COLOR_BOLD_BLACK_ON_GREEN,
@@ -133,11 +144,16 @@ module top;
 
     task send_uart(
         input logic [10:0] packet_0,
-        input logic [10:0] packet_1
+        input logic [10:0] packet_1,
+        input packet_forw_t packet_save
         ); 
         begin
-            if(DEBUG == 1)
+            uart_packet_sent temp_packet_sent;
+            address_port temp_addr_port;
+            integer queue_index[$];
+            if(DEBUG == 1) begin 
                 $display("packet 0= %011b, packet 1= %011b",packet_0, packet_1);
+            end
             foreach(packet_0[i]) begin
                 sin = packet_0[i];
                 repeat (16) @(posedge clk);
@@ -145,6 +161,28 @@ module top;
             foreach(packet_1[i]) begin
                 sin = packet_1[i];
                 repeat (16) @(posedge clk);
+            end
+            if(packet_save==FORWARD) begin
+                temp_packet_sent.timestamp = $time;
+                temp_packet_sent.packet_0 = packet_0;
+                temp_packet_sent.packet_1 = packet_1;
+                queue_index = addr_port_table.find_index() with(item.address == temp_packet_sent.packet_0);
+                if(queue_index.size() == 1)begin 
+                    temp_packet_sent.port=addr_port_table[queue_index[0]].port;
+                end
+                else begin
+                    temp_packet_sent.port=1'bx;
+                end
+                uart_good_sent.push_front(temp_packet_sent);
+            end
+            else if(packet_save==NOT_FORWARD) begin
+                temp_addr_port.address = packet_0;
+                temp_addr_port.port = packet_1[9];
+                queue_index = addr_port_table.find_index() with(item.address == temp_addr_port.address);
+                if(queue_index.size() > 0)begin 
+                    addr_port_table.delete(queue_index[0]);
+                end
+                addr_port_table.push_front(temp_addr_port);
             end
         end
     endtask
@@ -157,7 +195,7 @@ module top;
         uart_packet_sent temp_packet;
         forever begin
             @(negedge sout0 or negedge sout1);
-            temp_packet.timestamp=$time;    //get time of the start of packet
+            temp_packet.timestamp=$time;
             if(sout0==0 && sout1==0) begin  //check which port is active (err if both or none)
                 temp_packet.port=1'bx;
                 temp_packet.packet_0=11'bx;
@@ -166,13 +204,13 @@ module top;
             else if(sout0==0) begin 
                 temp_packet.port=0; //save data from sout0
                 repeat(8) @(posedge clk);
-                temp_packet.packet_0[0]=sout0;
-                for (i=1; i<=10; i=i+1) begin 
+                temp_packet.packet_0[10]=sout0;
+                for (i=9; i>=0; i=i-1) begin 
                     repeat(16) @(posedge clk);
                     temp_packet.packet_0[i]=sout0;
                 end
 
-                for (i=0; i<=10; i=i+1) begin 
+                for (i=10; i>=0; i=i-1) begin 
                     repeat(16) @(posedge clk);
                     temp_packet.packet_1[i]=sout0;
                 end
@@ -180,13 +218,13 @@ module top;
             else if(sout1==0) begin
                 temp_packet.port=1; //save data from sout1
                 repeat(8) @(posedge clk);
-                temp_packet.packet_0[0]=sout1;
-                for (i=1; i<=10; i=i+1) begin 
+                temp_packet.packet_0[10]=sout1;
+                for (i=9; i>=0; i=i-1) begin 
                     repeat(16) @(posedge clk);
                     temp_packet.packet_0[i]=sout1;
                 end
 
-                for (i=0; i<=10; i=i+1) begin 
+                for (i=10; i>=0; i=i-1) begin 
                     repeat(16) @(posedge clk);
                     temp_packet.packet_1[i]=sout1;
                 end
@@ -203,6 +241,9 @@ module top;
                 uart_good_sent.delete(queue_index[0]);
             end
             else begin
+                if(DEBUG==1) begin
+                    $display("ERR packet appeared at %t",temp_packet.timestamp);
+                end
                 uart_error_found.push_front(temp_packet);
             end
         end
@@ -240,33 +281,49 @@ module top;
     initial begin : main
         logic [10:0] packet_0;
         logic [10:0] packet_1;
+        integer i;
         
         sin = 1;
         prog = 1;
         rst_n = 0;
-        packet_0 = 11'b01111111101; //address
-        packet_1 = 11'b01000000011; //port = 1
 
         repeat(32)@(posedge clk);
         rst_n = 1;
 
-        send_uart(packet_0, packet_1);//address to sout 1
+        packet_0 = 11'b01111001101; //dodanie adresu port 1
+        packet_1 = 11'b01000000011; 
 
-        packet_0 = 11'b01000000101; //address
-        packet_1 = 11'b00000000001; //port = 0
+        send_uart(packet_0, packet_1,FORWARD);
 
-        send_uart(packet_0, packet_1);//address to sout 0 
+        packet_0 = 11'b01111000001; //dodanie adresu port 0
+        packet_1 = 11'b00000000001; 
+
+        send_uart(packet_0, packet_1,FORWARD);
 
         prog = 0;
 
-        packet_0 = 11'b01111111101; //address
-        packet_1 = 11'b01010100011; //data na port = 1
-        send_uart(packet_0, packet_1);
+        packet_0 = 11'b01111000001; //prawidłowy przesył port 0
+        packet_1 = 11'b01010100101;
+        send_uart(packet_0, packet_1,NOT_FORWARD);
 
-        packet_0 = 11'b01000000101; //address
-        packet_1 = 11'b01111111101; //data na port = 0
-        send_uart(packet_0, packet_1);
+        packet_0 = 11'b01111001101; //prawidłowy przesył port 1
+        packet_1 = 11'b01011110101;
+        send_uart(packet_0, packet_1,NOT_FORWARD);
+
         repeat(50) repeat (16) @(posedge clk);
+
+        if(DEBUG==1) begin
+            for(i=0;i<uart_good_sent.size();i++) begin
+                $display("ERR packet that did not appear:%p", uart_good_sent[i]);
+            end
+        end
+
+        if(uart_good_sent.size()>0 || uart_error_found.size()>0)begin
+            test_result=TEST_FAILED;
+        end
+        else begin
+            test_result=TEST_PASSED;
+        end
         $finish;
     end : main
     

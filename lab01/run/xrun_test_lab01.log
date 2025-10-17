@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Oct 16, 2025 at 23:30:47 CEST
+TOOL:	xrun(64)	24.09-s005: Started on Oct 17, 2025 at 02:40:42 CEST
 xrun
 	-F ../tb/tb.f
 		../../common/simple_uart_switch.sv
@@ -37,10 +37,10 @@ Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/
 	Design hierarchy summary:
 		              Instances  Unique
 		Modules:              2       2
-		Registers:           53      53
+		Registers:           64      64
 		Scalar wires:        10       -
 		Always blocks:        3       3
-		Initial blocks:       4       4
+		Initial blocks:       5       5
 		Final blocks:         1       1
 		Cont. assignments:    1       2
 		Pseudo assignments:   3       -
@@ -49,22 +49,44 @@ Loading snapshot worklib.top:sv .................... Done
 xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/xcelium/files/xmsimrc
 xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
 xcelium> run
-packet 0= 01111111101, packet 1= 01000000011
-time: 7670
-packet 0= 01000000101, packet 1= 00000000001
-time: 14710
-packet 0= 01111111101, packet 1= 01010100011
-time: 21750
-packet 0= 01000000101, packet 1= 01111111101
-time_rec:21750
+packet 0= 01111001101, packet 1= 01000000011
+packet 0= 01111000001, packet 1= 00000000001
+packet 0= 01111000001, packet 1= 01010100101
+packet 0= 01111001101, packet 1= 01011110101
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+ERR packet appeared at                21750
+sout0= 1, sout1= 1
+-------------End of packet1-------------
 +++++++++++++Packet found+++++++++++++
 sout0= 1, sout1= 0
 sout0= 1, sout1= 1
 sout0= 1, sout1= 1
 sout0= 1, sout1= 1
 sout0= 1, sout1= 1
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
+sout0= 1, sout1= 0
+sout0= 1, sout1= 0
 sout0= 1, sout1= 1
 sout0= 1, sout1= 1
 sout0= 1, sout1= 0
@@ -74,47 +96,23 @@ sout0= 1, sout1= 0
 sout0= 1, sout1= 1
 sout0= 1, sout1= 0
 sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
 sout0= 1, sout1= 0
 sout0= 1, sout1= 1
 sout0= 1, sout1= 0
-sout0= 1, sout1= 0
-sout0= 1, sout1= 0
-sout0= 1, sout1= 1
+ERR packet appeared at                28790
 sout0= 1, sout1= 1
 -------------End of packet1-------------
-time: 28790
-time_rec:28790
-+++++++++++++Packet found+++++++++++++
-sout0= 0, sout1= 1
-sout0= 1, sout1= 1
-sout0= 0, sout1= 1
-sout0= 0, sout1= 1
-sout0= 0, sout1= 1
-sout0= 0, sout1= 1
-sout0= 0, sout1= 1
-sout0= 0, sout1= 1
-sout0= 1, sout1= 1
-sout0= 0, sout1= 1
-sout0= 1, sout1= 1
--------------End of packet0-------------
-sout0= 0, sout1= 1
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
-sout0= 0, sout1= 1
-sout0= 1, sout1= 1
--------------End of packet1-------------
-[1;30m[102m-----------------------------------
------------ Test PASSED -----------
+ERR packet that did not appear:'{packet_0:'h3c1, packet_1:'h1, timestamp:'h3976, port:'hx}
+ERR packet that did not appear:'{packet_0:'h3cd, packet_1:'h203, timestamp:'h1df6, port:'hx}
+[1;30m[101m-----------------------------------
+----------- Test FAILED -----------
 -----------------------------------[0m
 
 Simulation complete via $finish(1) at time 44790 NS + 0
-../tb/simple_uart_switch_tb.sv:202         $finish;
+../tb/simple_uart_switch_tb.sv:327         $finish;
 xcelium> exit
 See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
 
@@ -125,6 +123,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_54e0baeb_00000000.ucm
-  data               :  ./cov_work/scope/test/icc_54e0baeb_00000000.ucd
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 16, 2025 at 23:30:49 CEST  (total: 00:00:02)
+  model(design data) :  ./cov_work/scope/icc_624756c2_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_624756c2_00000000.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 17, 2025 at 02:40:45 CEST  (total: 00:00:03)
