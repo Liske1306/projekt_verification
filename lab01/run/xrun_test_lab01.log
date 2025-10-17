@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Oct 17, 2025 at 02:40:42 CEST
+TOOL:	xrun(64)	24.09-s005: Started on Oct 17, 2025 at 03:25:00 CEST
 xrun
 	-F ../tb/tb.f
 		../../common/simple_uart_switch.sv
@@ -51,8 +51,10 @@ xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology
 xcelium> run
 packet 0= 01111001101, packet 1= 01000000011
 packet 0= 01111000001, packet 1= 00000000001
-packet 0= 01111000001, packet 1= 01010100101
-packet 0= 01111001101, packet 1= 01011110101
+packet 0= 00000000001, packet 1= 00000000001
+packet 0= 01111111101, packet 1= 00000000001
+packet 0= 01111000001, packet 1= 00000000001
+packet 0= 01111001101, packet 1= 00000100101
 +++++++++++++Packet found+++++++++++++
 sout0= 0, sout1= 1
 sout0= 1, sout1= 1
@@ -67,18 +69,18 @@ sout0= 0, sout1= 1
 sout0= 1, sout1= 1
 -------------End of packet0-------------
 sout0= 0, sout1= 1
-sout0= 1, sout1= 1
-sout0= 0, sout1= 1
-sout0= 1, sout1= 1
-sout0= 0, sout1= 1
-sout0= 1, sout1= 1
 sout0= 0, sout1= 1
 sout0= 0, sout1= 1
-sout0= 1, sout1= 1
 sout0= 0, sout1= 1
-ERR packet appeared at                21750
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
 sout0= 1, sout1= 1
 -------------End of packet1-------------
+packet 0= 01111111101, packet 1= 01111111101
 +++++++++++++Packet found+++++++++++++
 sout0= 1, sout1= 0
 sout0= 1, sout1= 1
@@ -93,26 +95,226 @@ sout0= 1, sout1= 0
 sout0= 1, sout1= 1
 -------------End of packet0-------------
 sout0= 1, sout1= 0
-sout0= 1, sout1= 1
 sout0= 1, sout1= 0
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
-sout0= 1, sout1= 1
+sout0= 1, sout1= 0
+sout0= 1, sout1= 0
 sout0= 1, sout1= 0
 sout0= 1, sout1= 1
 sout0= 1, sout1= 0
-ERR packet appeared at                28790
+sout0= 1, sout1= 0
+sout0= 1, sout1= 1
+sout0= 1, sout1= 0
 sout0= 1, sout1= 1
 -------------End of packet1-------------
-ERR packet that did not appear:'{packet_0:'h3c1, packet_1:'h1, timestamp:'h3976, port:'hx}
-ERR packet that did not appear:'{packet_0:'h3cd, packet_1:'h203, timestamp:'h1df6, port:'hx}
-[1;30m[101m-----------------------------------
------------ Test FAILED -----------
+packet 0= 00000000001, packet 1= 01000110101
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+packet 0= 01111111101, packet 1= 01111111101
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+packet 0= 00000000001, packet 1= 00000000001
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+00000000011
+01100100001
+01111111111
+00001001011
+00110110101
+00001111101
+01111111111
+00111100011
+01111111111
+00011111111
+00101100001
+01000111011
+00000000011
+00010011001
+01111111111
+01111111111
+01111111111
+01111111111
+01111111111
+00000000011
+01111111111
+01111111111
+00101101011
+01110110111
+00110010111
+01101111101
+00100010011
+00000000011
+01010101101
+01101110001
+01111110101
+01111111111
+00100111011
+01111111111
+01011011001
+00000000011
+01011100011
+00000000011
+01111111111
+00000000011
+01101101111
+01101100101
+00111011001
+01011011001
+00100011001
+00000000011
+01111111111
+01011010011
+00000000011
+00000000011
+01100011110
+00000100010
+00000000000
+00010100110
+00000000000
+01101101010
+00110011000
+00000000000
+01111111100
+00101111010
+01101010110
+01011100110
+01111111100
+01100000000
+01011011010
+01101110010
+00111100000
+01101101100
+01111111100
+01111101000
+00001011100
+01000011010
+00000000000
+00011010100
+01100000110
+01001100010
+01111111100
+01111111100
+00000000000
+00100111000
+00000000000
+01010000110
+01110011010
+01111111100
+00010101010
+01001111010
+00000000000
+01100100010
+00001001110
+01111111100
+01111111100
+01011101010
+00000000000
+01001001010
+00000000000
+01111111100
+01111101000
+00011001010
+01000010000
+00000000000
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+[1;30m[102m-----------------------------------
+----------- Test PASSED -----------
 -----------------------------------[0m
 
-Simulation complete via $finish(1) at time 44790 NS + 0
-../tb/simple_uart_switch_tb.sv:327         $finish;
+Simulation complete via $finish(1) at time 1143030 NS + 0
+../tb/simple_uart_switch_tb.sv:393         $finish;
 xcelium> exit
 See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
 
@@ -123,6 +325,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_624756c2_00000000.ucm
-  data               :  ./cov_work/scope/test/icc_624756c2_00000000.ucd
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 17, 2025 at 02:40:45 CEST  (total: 00:00:03)
+  model(design data) :  ./cov_work/scope/icc_2f6113c5_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_2f6113c5_00000000.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 17, 2025 at 03:25:03 CEST  (total: 00:00:03)

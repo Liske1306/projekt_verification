@@ -59,7 +59,7 @@ module top;
         COLOR_DEFAULT
     } print_color_t;
 
-    localparam int DEBUG = 1;
+    localparam int DEBUG = 0;
 
     //------------------------------------------------------------------------------
     // Local variables
@@ -114,9 +114,9 @@ module top;
             
     //---------------------------------
     function bit [0:10] generate_uart_packet(
-        input  bit         err_start,       // Inject error in start bit
-        input  bit         err_parity,      // Inject error in parity bit
-        input  bit         err_stop         // Inject error in stop bit
+        input  bit         err_start,       
+        input  bit         err_parity,      
+        input  bit         err_stop         
     );
         logic [7:0]data_byte;
         logic parity_bit;
@@ -128,7 +128,6 @@ module top;
         stop_bit  = 1'b1;
         data_byte = get_data();
         parity_bit = ^data_byte;
-        parity_bit = ~parity_bit;
 
         if (err_start)  start_bit  = ~start_bit;
         if (err_parity) parity_bit = ~parity_bit;
@@ -290,25 +289,92 @@ module top;
         repeat(32)@(posedge clk);
         rst_n = 1;
 
-        packet_0 = 11'b01111001101; //dodanie adresu port 1
+        packet_0 = 11'b01111001101; //dodanie adresu port 1(sprawdzenie czy podczas prog nie wypisuje)
         packet_1 = 11'b01000000011; 
-
-        send_uart(packet_0, packet_1,FORWARD);
+        send_uart(packet_0, packet_1,NOT_FORWARD);
 
         packet_0 = 11'b01111000001; //dodanie adresu port 0
         packet_1 = 11'b00000000001; 
+        send_uart(packet_0, packet_1,NOT_FORWARD);
 
-        send_uart(packet_0, packet_1,FORWARD);
+        packet_0 = 11'b00000000001; //dodanie adresu min
+        packet_1 = 11'b00000000001; 
+        send_uart(packet_0, packet_1,NOT_FORWARD);
+
+        packet_0 = 11'b01111111101; //dodanie adresu max
+        packet_1 = 11'b00000000001; 
+        send_uart(packet_0, packet_1,NOT_FORWARD);
 
         prog = 0;
 
         packet_0 = 11'b01111000001; //prawidłowy przesył port 0
-        packet_1 = 11'b01010100101;
-        send_uart(packet_0, packet_1,NOT_FORWARD);
+        packet_1 = generate_uart_packet(0,0,0);
+        send_uart(packet_0, packet_1,FORWARD);
 
         packet_0 = 11'b01111001101; //prawidłowy przesył port 1
-        packet_1 = 11'b01011110101;
-        send_uart(packet_0, packet_1,NOT_FORWARD);
+        packet_1 = generate_uart_packet(0,0,0);
+        send_uart(packet_0, packet_1,FORWARD);
+
+        packet_0 = 11'b01111111101; //prawidłowy przesył adrr max
+        packet_1 = generate_uart_packet(0,0,0);
+        send_uart(packet_0, packet_1,FORWARD);
+
+        packet_0 = 11'b00000000001; //prawidłowy przesył adrr min
+        packet_1 = generate_uart_packet(0,0,0);
+        send_uart(packet_0, packet_1,FORWARD);
+
+        packet_0 = 11'b01111111101; //prawidłowy przesył dana max
+        packet_1 = 11'b01111111101;
+        send_uart(packet_0, packet_1,FORWARD);
+
+        packet_0 = 11'b00000000001; //prawidłowy przesył dana min
+        packet_1 = 11'b00000000001;
+        send_uart(packet_0, packet_1,FORWARD);
+
+        packet_0 = 11'b00111110101; //przesyl na nieistniejacy adres (nie obchodzi go adres)
+        packet_1 = 11'b00000000001;
+        //send_uart(packet_0, packet_1,NOT_FORWARD);
+        
+        packet_0 = 11'b01111000001; //bledny bit startu(ciagly przesyl paczek err)
+        repeat(50)begin
+        packet_1 = generate_uart_packet(1,0,0);
+        //send_uart(packet_0, packet_1,NOT_FORWARD);
+        end
+
+        packet_0 = 11'b01111000001; //bledny bit parity(ciagly przesyl paczek err)
+        repeat(50)begin
+        packet_1 = generate_uart_packet(0,1,0);
+        $display("%11b",packet_1);
+        //send_uart(packet_0, packet_1,NOT_FORWARD);
+        end
+
+        packet_0 = 11'b01111000001; //bledny bit stopu(ciagly przesyl paczek err)
+        repeat(50)begin
+        packet_1 = generate_uart_packet(0,0,1);
+        $display("%11b",packet_1);
+        //send_uart(packet_0, packet_1,NOT_FORWARD);
+        end
+
+        packet_0 = 11'b01111000001; //bledny bit stopu opoznienie
+        repeat(50)begin
+        repeat(352)@(posedge clk);
+        packet_1 = generate_uart_packet(1,0,0);
+        //send_uart(packet_0, packet_1,NOT_FORWARD);
+        end
+
+        packet_0 = 11'b01111000001; //bledny bit parity opoznienie
+        repeat(50)begin
+        repeat(352)@(posedge clk);
+        packet_1 = generate_uart_packet(0,1,0);
+        //send_uart(packet_0, packet_1,NOT_FORWARD);
+        end
+
+        packet_0 = 11'b01111000001; //bledny bit stopu opoznienie
+        repeat(50)begin
+        repeat(352)@(posedge clk);
+        packet_1 = generate_uart_packet(0,0,1);
+        //send_uart(packet_0, packet_1,NOT_FORWARD);
+        end
 
         repeat(50) repeat (16) @(posedge clk);
 
