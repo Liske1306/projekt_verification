@@ -242,7 +242,10 @@ module top;
                 repeat(16) @(posedge clk);
                 temp_packet_sin.packet_0[i]=sin;
             end
-            for (i=10; i>=0; i=i-1) begin 
+            @(negedge sin);
+            repeat(8)@(posedge clk);
+            temp_packet_sin.packet_1[10]=sin;
+            for (i=9; i>=0; i=i-1) begin 
                 repeat(16) @(posedge clk);
                 temp_packet_sin.packet_1[i]=sin;
             end
@@ -438,11 +441,11 @@ module top;
 
         packet_0 = 11'b01111111101; //prawidłowy przesył dana max
         packet_1 = 11'b01111111101;
-        //send_uart(packet_0, packet_1);
+        send_uart(packet_0, packet_1);
 
         packet_0 = 11'b00000000001; //prawidłowy przesył dana min
         packet_1 = 11'b00000000001;
-        //send_uart(packet_0, packet_1);
+        send_uart(packet_0, packet_1);
 
         packet_0 = 11'b00111110101; //przesyl na nieistniejacy adres (nie obchodzi go adres)
         packet_1 = 11'b00000000001;
@@ -458,14 +461,14 @@ module top;
         repeat(500)begin
         packet_1 = generate_uart_packet(0,1,0);
         //$display("%11b",packet_1);
-        //send_uart(packet_0, packet_1);
+        send_uart(packet_0, packet_1);
         end
 
         packet_0 = 11'b01111000001; //bledny bit stopu(ciagly przesyl paczek err)
         repeat(500)begin
         packet_1 = generate_uart_packet(0,0,1);
         //$display("%11b",packet_1);
-        //send_uart(packet_0, packet_1);
+        send_uart(packet_0, packet_1);
         end
 
         packet_0 = 11'b01111000001; //bledny bit startu opoznienie

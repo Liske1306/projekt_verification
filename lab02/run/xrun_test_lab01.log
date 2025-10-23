@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Oct 21, 2025 at 23:09:26 CEST
+TOOL:	xrun(64)	24.09-s005: Started on Oct 23, 2025 at 22:29:06 CEST
 xrun
 	-F ../tb/tb.f
 		../../common/simple_uart_switch.sv
@@ -37,7 +37,7 @@ Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/
 	Design hierarchy summary:
 		                Instances  Unique
 		Modules:                2       2
-		Registers:             71      71
+		Registers:             70      70
 		Scalar wires:          10       -
 		Always blocks:          3       3
 		Initial blocks:         6       6
@@ -54,8 +54,8 @@ xcelium> run
 ----------- Test PASSED -----------
 -----------------------------------[0m
 
-Simulation complete via $finish(1) at time 1128950 NS + 0
-../tb/simple_uart_switch_tb.sv:534         $finish;
+Simulation complete via $finish(1) at time 8183030 NS + 0
+../tb/simple_uart_switch_tb.sv:536         $finish;
 xcelium> exit
 See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
 
@@ -66,6 +66,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_76fb88fc_57911600.ucm
-  data               :  ./cov_work/scope/test/icc_76fb88fc_57911600.ucd
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 21, 2025 at 23:09:28 CEST  (total: 00:00:02)
+  model(design data) :  ./cov_work/scope/icc_60b0800f_57911600.ucm
+  data               :  ./cov_work/scope/test/icc_60b0800f_57911600.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 23, 2025 at 22:29:08 CEST  (total: 00:00:02)
