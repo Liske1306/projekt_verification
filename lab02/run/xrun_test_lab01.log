@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Oct 17, 2025 at 13:13:22 CEST
+TOOL:	xrun(64)	24.09-s005: Started on Oct 21, 2025 at 23:09:26 CEST
 xrun
 	-F ../tb/tb.f
 		../../common/simple_uart_switch.sv
@@ -35,15 +35,16 @@ Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/
 	Performing constant object marking (COM) analysis.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
-		              Instances  Unique
-		Modules:              2       2
-		Registers:           64      64
-		Scalar wires:        10       -
-		Always blocks:        3       3
-		Initial blocks:       5       5
-		Final blocks:         1       1
-		Cont. assignments:    1       2
-		Pseudo assignments:   3       -
+		                Instances  Unique
+		Modules:                2       2
+		Registers:             71      71
+		Scalar wires:          10       -
+		Always blocks:          3       3
+		Initial blocks:         6       6
+		Final blocks:           1       1
+		Cont. assignments:      1       2
+		Pseudo assignments:     5       -
+		Covergroup Instances:   0       1
 	Writing initial simulation snapshot: worklib.top:sv
 Loading snapshot worklib.top:sv .................... Done
 xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/xcelium/files/xmsimrc
@@ -53,8 +54,8 @@ xcelium> run
 ----------- Test PASSED -----------
 -----------------------------------[0m
 
-Simulation complete via $finish(1) at time 1143030 NS + 0
-../tb/simple_uart_switch_tb.sv:393         $finish;
+Simulation complete via $finish(1) at time 1128950 NS + 0
+../tb/simple_uart_switch_tb.sv:534         $finish;
 xcelium> exit
 See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
 
@@ -65,6 +66,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_2f6113c5_00000000.ucm
-  data               :  ./cov_work/scope/test/icc_2f6113c5_00000000.ucd
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 17, 2025 at 13:13:26 CEST  (total: 00:00:04)
+  model(design data) :  ./cov_work/scope/icc_76fb88fc_57911600.ucm
+  data               :  ./cov_work/scope/test/icc_76fb88fc_57911600.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 21, 2025 at 23:09:28 CEST  (total: 00:00:02)

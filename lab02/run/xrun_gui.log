@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Oct 16, 2025 at 19:07:31 CEST
+TOOL:	xrun(64)	24.09-s005: Started on Oct 21, 2025 at 20:48:29 CEST
 xrun
 	-F ../tb/tb.f
 		../../common/simple_uart_switch.sv
@@ -39,10 +39,10 @@ Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/
 	Design hierarchy summary:
 		              Instances  Unique
 		Modules:              2       2
-		Registers:           53      53
+		Registers:           70      70
 		Scalar wires:        10       -
 		Always blocks:        3       3
-		Initial blocks:       4       4
+		Initial blocks:       6       6
 		Final blocks:         1       1
 		Cont. assignments:    1       2
 		Pseudo assignments:   4       -
@@ -56,224 +56,1579 @@ xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/xcelium/fil
 xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
 xcelium> database -open waves -into waves.shm -default
 Created default SHM database waves
-xcelium> probe -create -shm top.clk top.rst_n top.prog top.sin top.sout0 top.sout1
+xcelium> probe -create -shm top.DUT.clk top.DUT.prog top.DUT.sin top.DUT.sout0 top.DUT.sout1
 Created probe 1
 xcelium> run
-start
--------------Sending packet-------------
-packet 0= 01111111101, packet 1= 01000000011
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 0-------------
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 1-------------
--------------Sending packet-------------
-packet 0= 01000000101, packet 1= 00000000001
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 0-------------
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 1-------------
--------------Sending packet-------------
-packet 0= 01111111101, packet 1= 01010100011
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 0-------------
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-19990 Clock cycles elapsed: 1000
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 1-------------
--------------Sending packet-------------
-packet 0= 01000000101, packet 1= 01111111101
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 0, sout0= 1, sout1= 0
-sin= 1, sout0= 1, sout1= 1
-------------End packet 0-------------
-sin= 0, sout0= 1, sout1= 0
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 0
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 0
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 0
-sin= 1, sout0= 1, sout1= 0
-sin= 1, sout0= 1, sout1= 0
-sin= 0, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-------------End packet 1-------------
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 0, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-39990 Clock cycles elapsed: 2000
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-59990 Clock cycles elapsed: 3000
-sin= 1, sout0= 1, sout1= 1
-sin= 1, sout0= 1, sout1= 1
-finish
-[1;30m[102m-----------------------------------
------------ Test PASSED -----------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h54f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'h8bf6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'hc2f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h5f1, timestamp:'hf9f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7c5, timestamp:'h130f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h6fd, timestamp:'h167f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h5bf, timestamp:'h19ef6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h5fd, timestamp:'h1d5f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'h20cf6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h463, timestamp:'h243f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h27af6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h447, timestamp:'h2b1f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h2e8f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h763, timestamp:'h31ff6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h356f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h6ad, timestamp:'h38df6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'h3c4f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h771, timestamp:'h3fbf6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h6c7, timestamp:'h432f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h469f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'h4a0f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h4d7f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h4f9, timestamp:'h50ef6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h545f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h589, timestamp:'h57cf6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'h5b3f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h5eaf6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'h621f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h658f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h683, timestamp:'h68ff6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h4dd, timestamp:'h6c6f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h5c7, timestamp:'h6fdf6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h734f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h60d, timestamp:'h76bf6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h531, timestamp:'h7a2f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h7d9f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'h810f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'h847f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h4ed, timestamp:'h87ef6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h421, timestamp:'h8b5f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h637, timestamp:'h8ecf6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'h923f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h52f, timestamp:'h95af6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h403, timestamp:'h991f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'h9c8f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h531, timestamp:'h9fff6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'ha36f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h7ff, timestamp:'ha6df6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h6b3, timestamp:'haa4f6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+BAD INPUT:'{packet_0:'h3c1, packet_1:'h6df, timestamp:'hadbf6, port:'h0}
+Err packet_0? = 0
+Err packet_1? = 1
+Address OK
+------------------------------------
++++++++++++++Packet found+++++++++++++
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet0-------------
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 0, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+sout0= 1, sout1= 1
+-------------End of packet1-------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h37f, timestamp:'hade76, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h2cf, timestamp:'haa776, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h3c1, timestamp:'ha6036, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h263, timestamp:'ha0136, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h7, packet_1:'h3c1, timestamp:'h9bb36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h25f, packet_1:'h3c1, timestamp:'h98436, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h7, packet_1:'h3c1, timestamp:'h94d36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'hdf, packet_1:'h3c1, timestamp:'h91636, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h43, packet_1:'h3c1, timestamp:'h8df36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h1db, packet_1:'h3c1, timestamp:'h8a836, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h7, packet_1:'h3c1, timestamp:'h87136, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h7, packet_1:'h3c1, timestamp:'h83a36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h3c1, timestamp:'h80336, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h263, timestamp:'h7a436, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h37, timestamp:'h76e76, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h38f, packet_1:'h3c1, timestamp:'h72736, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h1bb, packet_1:'h3c1, timestamp:'h6f036, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h20f, packet_1:'h3c1, timestamp:'h6b936, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h3c1, timestamp:'h68236, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h7, timestamp:'h62336, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h7, packet_1:'h3c1, timestamp:'h5dd36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h313, packet_1:'h3c1, timestamp:'h5a636, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h3c1, timestamp:'h56f36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h1f3, timestamp:'h51036, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h7, packet_1:'h3c1, timestamp:'h4ca36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h3c1, timestamp:'h49336, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h31f, timestamp:'h43576, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h38f, timestamp:'h3ffb6, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h7, timestamp:'h3c636, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h2b7, timestamp:'h39076, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h31f, packet_1:'h3c1, timestamp:'h34936, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h3c1, timestamp:'h31236, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h8f, timestamp:'h2b336, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+ERR packet that should not appear:'{packet_0:'hc7, packet_1:'h3c1, timestamp:'h26d36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h7, packet_1:'h3c1, timestamp:'h23636, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3fb, packet_1:'h3c1, timestamp:'h1ff36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h37f, packet_1:'h3c1, timestamp:'h1c836, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3f7, packet_1:'h3c1, timestamp:'h19136, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'hbf, packet_1:'h3c1, timestamp:'h15a36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3e3, packet_1:'h3c1, timestamp:'h12336, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h7, packet_1:'h3c1, timestamp:'hec36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h7, packet_1:'h3c1, timestamp:'hb536, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+ERR packet that should not appear:'{packet_0:'h3c1, packet_1:'h3c1, timestamp:'h7e36, port:'h0}
+Check if err packet_0 = 0
+Check if err packet_1 = 0
+Address OK
+Address = 3c1, Port= 0
+------------------------------------
+[1;30m[101m-----------------------------------
+----------- Test FAILED -----------
 -----------------------------------[0m
 
-Simulation complete via $finish(1) at time 60790 NS + 0
-../tb/simple_uart_switch_tb.sv:195         $finish;
+Simulation complete via $finish(1) at time 1431670 NS + 0
+../tb/simple_uart_switch_tb.sv:487         $finish;
+xcelium> run
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> ^C
+xcelium> ^C
+xcelium> ^C
 xcelium> ^C
 xcelium> exit
 See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
@@ -285,6 +1640,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_71474c13_00000000.ucm (reused)
-  data               :  ./cov_work/scope/test/icc_71474c13_00000000.ucd
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 16, 2025 at 20:15:47 CEST  (total: 01:08:16)
+  model(design data) :  ./cov_work/scope/icc_1025d301_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_1025d301_00000000.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 21, 2025 at 20:51:51 CEST  (total: 00:03:22)
