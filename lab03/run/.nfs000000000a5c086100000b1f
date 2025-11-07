@@ -1,0 +1,130 @@
+TOOL:	xrun(64)	24.09-s005: Started on Nov 07, 2025 at 01:46:46 CET
+xrun
+	-F ../tb/tb.f
+		../../common/simple_uart_switch.sv
+		switch_tb_pkg.svh
+		simple_uart_switch_tb.sv
+		coverage.sv
+		scoreboard.sv
+		switch_bfm.sv
+		tbgen.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs_gui
+	+access+r
+	+gui
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+	+UVM_TESTNAME=lab01
+	-l xrun_gui.log
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		switch_tb_pkg
+		top
+
+	Extracting FSMs for coverage:
+		worklib.tbgen
+		worklib.coverage
+		worklib.scoreboard
+		worklib.top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................
+xmelab: *W,COVEOS: Currently, by default, coverage is scored for expressions containing struct datatypes. For backward compatibility, use " set_backward_compat -no_struct " coverage configuration file command..
+... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                Instances  Unique
+		Modules:                5       5
+		Interfaces:             1       1
+		Verilog packages:       1       1
+		Registers:             77      77
+		Scalar wires:          10       -
+		Always blocks:          3       3
+		Initial blocks:         8       8
+		Final blocks:           1       1
+		Cont. assignments:      1       2
+		Pseudo assignments:     6       -
+		Covergroup Instances:   0       1
+	Writing initial simulation snapshot: worklib.top:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/xcelium/files/xmsimrc
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm top.DUT.clk top.DUT.prog top.DUT.sin top.DUT.sout0 top.DUT.sout1
+Created probe 1
+xcelium> run
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+01111001101
+01000000011
+1
+                7670
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+00000100000
+00000000001
+1
+               18230
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+01111111101
+00000000001
+1
+               28790
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+01000000000
+01111001101
+0
+               39350
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+00101011111
+01011111111
+0
+               49270
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+01000000000
+01111111101
+               35830
+ERR packet that did not appear,
+packet0:00101011111
+packet1:01011111111
+port:x
+Err packet_0? = 0
+Err packet_1? = 0
+No address!
+------------------------------------
+ERR packet that should not appear
+packet0:01000000000
+packet1:01111111101
+port:0
+Check if err packet_0 = 2
+Check if err packet_1 = 0
+Address ERR
+------------------------------------
+[1;30m[101m-----------------------------------
+----------- Test FAILED -----------
+-----------------------------------[0m
+
+Simulation complete via $finish(1) at time 1121910 NS + 0
+../tb/tbgen.sv:106         $finish;
+xcelium> ^C
+xcelium> ^C
+xcelium> ^C
+xcelium> 
