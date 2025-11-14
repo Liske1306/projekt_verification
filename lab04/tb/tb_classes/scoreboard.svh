@@ -22,14 +22,16 @@ class scoreboard;
     local uart_packet_sent output_packets[$]; //queue of found output packets
     local uart_packet_sent uart_good_sent[$]; // queue of sent packages that should appear on output
     local uart_packet_sent uart_error_found[$]; // queue of packages that should NOT appear on output
-
-    /*task automatic read_uart(//weird bugs unusable
+    
+    function new (virtual switch_bfm b);
+        bfm = b;
+    endfunction : new
+    local task automatic read_uart(//weird bugs unusable
         ref uart_packet_sent temp_packet,
-        ref bit signal
+        ref logic signal
         ); 
         begin
             int i;
-            @(negedge signal);
             repeat(8)@(posedge bfm.clk);
             temp_packet.packet_0[10]=signal;
             for (i=9; i>=0; i=i-1) begin 
@@ -46,31 +48,14 @@ class scoreboard;
             repeat(8)@(posedge bfm.clk);
         end
     endtask
-    */
-    function new (virtual switch_bfm b);
-        bfm = b;
-    endfunction : new
-
+    
     local task input_find();
         uart_packet_sent temp_packet_sin;
         int i;
         forever begin
             temp_packet_sin.is_prog=bfm.prog;
             @(negedge bfm.sin);
-            repeat(8)@(posedge bfm.clk);
-            temp_packet_sin.packet_0[10]=bfm.sin;
-            for (i=9; i>=0; i=i-1) begin 
-                repeat(16) @(posedge bfm.clk);
-                temp_packet_sin.packet_0[i]=bfm.sin;
-            end
-            @(negedge bfm.sin);
-            repeat(8)@(posedge bfm.clk);
-            temp_packet_sin.packet_1[10]=bfm.sin;
-            for (i=9; i>=0; i=i-1) begin 
-                repeat(16) @(posedge bfm.clk);
-                temp_packet_sin.packet_1[i]=bfm.sin;
-            end
-            repeat(8)@(posedge bfm.clk);
+            read_uart(temp_packet_sin,bfm.sin);
             temp_packet_sin.timestamp=$time;
             input_packets.push_front(temp_packet_sin);
         end
@@ -87,34 +72,12 @@ class scoreboard;
             end
             else if(bfm.sout0==0) begin 
                 temp_packet.port=0; //save data from sout0
-                repeat(8)@(posedge bfm.clk);
-                temp_packet.packet_0[10]=bfm.sout0;
-                for (i=9; i>=0; i=i-1) begin 
-                    repeat(16) @(posedge bfm.clk);
-                    temp_packet.packet_0[i]=bfm.sout0;
-                end
-                repeat(16)@(posedge bfm.clk);
-                temp_packet.packet_1[10]=bfm.sout0;
-                for (i=9; i>=0; i=i-1) begin 
-                    repeat(16) @(posedge bfm.clk);
-                    temp_packet.packet_1[i]=bfm.sout0;
-                end
+                read_uart(temp_packet,bfm.sout0);
                 output_packets.push_front(temp_packet);
             end
             else if(bfm.sout1==0) begin
                 temp_packet.port=1; //save data from sout1
-                repeat(8)@(posedge bfm.clk);
-                temp_packet.packet_0[10]=bfm.sout1;
-                for (i=9; i>=0; i=i-1) begin 
-                    repeat(16) @(posedge bfm.clk);
-                    temp_packet.packet_0[i]=bfm.sout1;
-                end
-                repeat(16)@(posedge bfm.clk);
-                temp_packet.packet_1[10]=bfm.sout1;
-                for (i=9; i>=0; i=i-1) begin 
-                    repeat(16) @(posedge bfm.clk);
-                    temp_packet.packet_1[i]=bfm.sout1;
-                end
+                read_uart(temp_packet,bfm.sout1);
                 output_packets.push_front(temp_packet);
             end
             else begin

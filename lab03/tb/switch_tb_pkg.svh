@@ -27,7 +27,7 @@ package switch_tb_pkg;
         logic        port;
     } address_port;
 
-        //------------------------
+    //------------------------
     //      Scoreboard       |
     //------------------------
 

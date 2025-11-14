@@ -3,9 +3,9 @@ interface switch_bfm;
     bit                  clk;
     bit                  rst_n;
     bit                  prog;
-    bit                  sin;
-    bit                  sout0;
-    bit                  sout1;
+    logic                sin;
+    logic                sout0;
+    logic                sout1;
     logic        [10:0]  packet_0;
     logic        [10:0]  packet_1;
             

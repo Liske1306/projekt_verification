@@ -2,9 +2,9 @@ class coverage;
     protected virtual switch_bfm bfm;
     protected bit                  rst_n;
     protected bit                  prog;
-    protected bit                  sin;
-    protected bit                  sout0;
-    protected bit                  sout1;
+    protected logic                sin;
+    protected logic                sout0;
+    protected logic                sout1;
     protected logic        [10:0]  packet_0;
     protected logic        [10:0]  packet_1;
     //------------------------
