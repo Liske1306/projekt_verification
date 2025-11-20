@@ -1,35 +1,83 @@
 ################################################################################
 #                    DO NOT MANUALLY EDIT THIS FILE!                           #
 ################################################################################
-# This file contains the automatically generated build configuration (2025/11/06 22:02:17)
+# This file contains the automatically generated build configuration (2025/11/20 19:42:30)
 # requested at line 3 in /student/glis/Downloads/projekt_verification/.dvt/default.build
 
 
 ################ Verilog Auto-config Directives ################
 +dvt_init
 
++incdir+lab04example/tb
+
+### AUTOCONFIG WARNING: Multiple incdir candidates.
+# The following includes have multiple incdir candidates:
+#`include "coverage.svh" in switch_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab04/tb/switch_tb_pkg.svh)
+#`include "tpgen.svh" in switch_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab04/tb/switch_tb_pkg.svh)
+#`include "scoreboard.svh" in switch_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab04/tb/switch_tb_pkg.svh)
+#`include "testbench.svh" in switch_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab04/tb/switch_tb_pkg.svh)
+#`include "coverage.svh" in tinyalu_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab04example/tb/tinyalu_tb_pkg.svh)
+#`include "tpgen.svh" in tinyalu_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab04example/tb/tinyalu_tb_pkg.svh)
+#`include "scoreboard.svh" in tinyalu_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab04example/tb/tinyalu_tb_pkg.svh)
+#`include "testbench.svh" in tinyalu_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab04example/tb/tinyalu_tb_pkg.svh)
+#`include "coverage.svh" in switch_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab05/tb/switch_tb_pkg.svh)
+#`include "tpgen.svh" in switch_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab05/tb/switch_tb_pkg.svh)
+#`include "scoreboard.svh" in switch_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab05/tb/switch_tb_pkg.svh)
+#`include "testbench.svh" in switch_tb_pkg.svh (/student/glis/Downloads/projekt_verification/lab05/tb/switch_tb_pkg.svh)
+# The list of incdir candidates is:
++incdir+lab04/tb/tb_classes
+# +incdir+lab04example/tb/tb_classes
+# +incdir+lab05/tb/tb_classes
+
+### AUTOCONFIG WARNING: Multiple incdir candidates.
+# The following includes have multiple incdir candidates:
+#`include "switch_macros.svh" in top.sv (/student/glis/Downloads/projekt_verification/lab04/tb/top.sv)
+#`include "switch_macros.svh" in top.sv (/student/glis/Downloads/projekt_verification/lab05/tb/top.sv)
+# The list of incdir candidates is:
++incdir+lab04/tb
+# +incdir+lab05/tb
+
 # Available `ifdef / `ifndef controls:
 # +define+DEBUG
 
-tinyalu_tb.sv
+lab04example/tb/tb_classes/scoreboard.svh
+lab04example/tb/tb_classes/tpgen.svh
 common/simple_uart_switch.sv
 common/tinyalu/three_cycle.sv
 lab01/tb/simple_uart_switch_tb.sv
 lab02/tb/simple_uart_switch_tb.sv
-lab03/tb/coverage.sv
-lab03/tb/scoreboard.sv
-lab03/tb/tbgen.sv
 lab03example/tb/top.sv
+lab04/tb/switch_bfm.sv
+lab04_part1/tb/lab04_part1.sv
+lab04_part1/tb/lab04part1_example_factory.sv
+lab04example/tb/tb_classes/coverage.svh
+lab04example/tb/tb_classes/testbench.svh
+lab05/tb/switch_bfm.sv
+lab05/tb/switch_macros.svh
+lab05/tb/tb_classes/coverage.svh
+lab05/tb/tb_classes/scoreboard.svh
+lab05/tb/tb_classes/testbench.svh
+lab05/tb/tb_classes/tpgen.svh
 common/tinyalu/tinyalu_pkg.sv
 common/tinyalu/tinyalu.sv
 common/tinyalu/single_cycle.sv
 lab03/tb/switch_tb_pkg.svh
-lab03/tb/switch_bfm.sv
-lab03/tb/simple_uart_switch_tb.sv
 lab03example/tb/tinyalu_tb_pkg.svh
+lab04/tb/switch_tb_pkg.svh
+lab04example/tb/tinyalu_tb_pkg.svh
+lab04example/tb/top.sv
+lab04example/tb/tinyalu_bfm.sv
 lab03example/tb/tpgen.sv
 lab03example/tb/tinyalu_bfm.sv
 lab03example/tb/scoreboard.sv
 lab03example/tb/coverage.sv
+lab05/tb/switch_tb_pkg.svh
+lab05/tb/top.sv
+lab04/tb/top.sv
+lab03/tb/tbgen.sv
+lab03/tb/switch_bfm.sv
+lab03/tb/simple_uart_switch_tb.sv
+lab03/tb/scoreboard.sv
+lab03/tb/coverage.sv
 
 ################ No files found. ################

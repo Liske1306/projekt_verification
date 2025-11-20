@@ -1,59 +1,33 @@
-/*
-	lab04part1.sv
-*/
-	
-/* ------------------------------------------------------------------------ */
-/* type definitions ------------------------------------------------------- */
-/* ------------------------------------------------------------------------ */
-	
 typedef struct {
 	real x;
 	real y;
 } point_st;
 	
-/* ------------------------------------------------------------------------ */
-/* parameters ------------------------------------------------------------- */
-/* ------------------------------------------------------------------------ */
-	
 parameter PI = 3.14;
-	
-/* ------------------------------------------------------------------------ */
-/* global functions ------------------------------------------------------- */
-/* ------------------------------------------------------------------------ */
-	
-/* get_distance() - calculate distance between points */
+
 function real get_distance(point_st point0, point_st point1);
 	real distance;
 	distance = ((point0.x - point1.x)**2 + (point0.y - point1.y)**2)**0.5;
 	return distance;
 endfunction : get_distance
-	
-/* abs_real() - calculate abs for real values */
+
 function real abs_real(real value);
 	if (value < 0) return -value;
 	else return value;
 endfunction : abs_real
-	
-/* ------------------------------------------------------------------------ */
-/* class definitions ------------------------------------------------------ */
-/* ------------------------------------------------------------------------ */
-	
+		
 virtual class shape_c;
 		
-	/* members */
 	protected string name;
 	protected point_st points[$];
 		
-	/* constructor */
 	function new(string n, point_st p[$]);
 		name = n;
 		points = p;
 	endfunction : new
-		
-	/* get_area() - calculate area - to be implemented in derived class */
+
 	pure virtual function real get_area();
 		
-	/* print() - print name, points and calculated area */
 	function void print();
 			
 		real area = get_area();
@@ -72,14 +46,11 @@ endclass : shape_c
 	
 class polygon_c extends shape_c;
 		
-	/* constructor */
 	function new(string name, point_st points[$]);
 		super.new(name, points);
 	endfunction : new
 		
-	/* get_area() - calculate area */
 	function real get_area();
-		/* area can not be calculated for generic polygon */
 		return -1.0;
 	endfunction : get_area
 		
@@ -87,12 +58,10 @@ endclass : polygon_c
 	
 class circle_c extends shape_c;
 		
-	/* constructor */
 	function new(string name, point_st points[$]);
 		super.new(name, points);
 	endfunction : new
 	
-	/* print() - print name, points and calculated area */
 	function void print();
 			
 		real radius = get_distance(points[0], points[1]);
@@ -107,7 +76,6 @@ class circle_c extends shape_c;
 			
 	endfunction : print
 	
-	/* get_area() - calculate area */
 	function real get_area();
 		real radius = get_distance(points[0], points[1]);
 		return (PI * radius**2);
@@ -117,12 +85,10 @@ endclass : circle_c
 	
 class rectangle_c extends polygon_c;
 		
-	/* constructor */
 	function new(string name, point_st points[$]);
 		super.new(name, points);
 	endfunction : new
 		
-	/* get_area() - calculate area */
 	function real get_area();
 		real side1_len = get_distance(points[0], points[1]);
 		real side2_len = get_distance(points[1], points[2]);
@@ -139,12 +105,8 @@ class triangle_c extends polygon_c;
 		super.new(name, points);
 	endfunction : new
 		
-	/* get_area() - calculate area */
 	function real get_area();
-		return abs_real(
-			(points[1].x - points[0].x) * (points[2].y - points[0].y) -
-			(points[2].x - points[0].x) * (points[1].y - points[0].y)
-		) * 0.5;	
+		return abs_real((points[1].x - points[0].x) * (points[2].y - points[0].y) - (points[2].x - points[0].x) * (points[1].y - points[0].y)) * 0.5;	
 	endfunction : get_area
 		
 endclass : triangle_c
@@ -197,14 +159,8 @@ class shape_reporter #(type T=shape_c);
 	endfunction : report_shapes
 		
 endclass : shape_reporter
-	
-/* ------------------------------------------------------------------------ */
-/* top -------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------ */
-	
-module top;
 		
-	/* variables */
+module top;
 	int file;
 	int r;
 	string line;
@@ -214,21 +170,18 @@ module top;
 	point_st points[$];
 		
 	initial begin
-		/* shapes handlers */
 		shape_c		shape_h;
 		circle_c	circle_h;
 		polygon_c	polygon_h;
 		rectangle_c	rectangle_h;
 		triangle_c	triangle_h;
 			
-		/* open file for reading */
 		file = $fopen("../tb/lab04part1_shapes.txt", "r");
 		if (file == 0) begin
 			$display("Cannot open the file!");
 			$finish;
 		end
 			
-		/* read points from file */
 		while (!$feof(file)) begin
 			r = $fgets(line, file);
 			if (r != 0) begin
@@ -251,34 +204,28 @@ module top;
 					end
 				end
 				
-				/* generate shape */
 				case (points.size())
 					2 : begin
-						/* create circle */
 						if (!$cast(circle_h, shape_factory::make_shape("circle", points)))
 							$fatal(1, "Failed to cast shape from factory to circle_h");
 						shape_reporter#(circle_c)::store_shape(circle_h);
 					end
 						
 					3 : begin
-						/* create triangle */
 						if (!$cast(triangle_h, shape_factory::make_shape("triangle", points)))
 							$fatal(1, "Failed to cast shape from factory to triangle_h");
 						shape_reporter#(triangle_c)::store_shape(triangle_h);
 					end
 						
 					4 : begin
-						/* check if rectangle */
 						automatic real side_len			= get_distance(points[0], points[2]);
 						automatic real opposed_side_len	= get_distance(points[1], points[3]);
 						if (side_len == opposed_side_len) begin
-							/* create rectangle */
 							if (!$cast(rectangle_h, shape_factory::make_shape("rectangle", points)))
 								$fatal(1, "Failed to cast shape from factory to rectangle_h");
 							shape_reporter#(rectangle_c)::store_shape(rectangle_h);
 						end
 						else begin
-							/* create polygon */
 							if (!$cast(polygon_h, shape_factory::make_shape("polygon", points)))
 								$fatal(1, "Failed to cast shape from factory to polygon_h");
 							shape_reporter#(polygon_c)::store_shape(polygon_h);
@@ -286,19 +233,16 @@ module top;
 					end
 						
 					default : begin
-						/* create polygon */
 						if (!$cast(polygon_h, shape_factory::make_shape("polygon", points)))
 							$fatal(1, "Failed to cast shape from factory to polygon_h");
 						shape_reporter#(polygon_c)::store_shape(polygon_h);
 					end								
-				endcase // (points.size())
+				endcase
 			end
 		end
 			
-		/* close the file */
 		$fclose(file);
 			
-		/* report shapes */
 		shape_reporter#(circle_c)::report_shapes();
 		shape_reporter#(triangle_c)::report_shapes();
 		shape_reporter#(rectangle_c)::report_shapes();

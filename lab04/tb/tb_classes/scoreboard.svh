@@ -26,7 +26,7 @@ class scoreboard;
     function new (virtual switch_bfm b);
         bfm = b;
     endfunction : new
-    local task automatic read_uart(//weird bugs unusable
+    local task automatic read_uart(
         ref uart_packet_sent temp_packet,
         ref logic signal
         ); 
