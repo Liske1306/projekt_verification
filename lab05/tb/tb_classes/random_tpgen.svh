@@ -55,6 +55,27 @@ class random_tpgen extends base_tpgen;
         return uart_packet;
     endfunction : generate_uart_packet
 
+    protected task send_packets();
+        bfm.prog = 1;
+        bfm.packet_0 = 11'b01111001101; //dodanie adresu port 1(sprawdzenie czy podczas prog nie wypisuje)
+        bfm.packet_1 = 11'b01000000011;
+        bfm.send_uart(bfm.packet_0, bfm.packet_1);
+
+        bfm.packet_0 = 11'b01111000001; //dodanie adresu port 0
+        bfm.packet_1 = 11'b00000000001;
+        bfm.send_uart(bfm.packet_0, bfm.packet_1);
+        
+        bfm.prog = 0;
+
+        bfm.packet_0 = 11'b01111000001; //prawidłowy przesył port 0
+        bfm.packet_1 = generate_uart_packet(0,0,0);
+        bfm.send_uart(bfm.packet_0, bfm.packet_1);
+
+        bfm.packet_0 = 11'b01111001101; //prawidłowy przesył port 1
+        bfm.packet_1 = generate_uart_packet(0,0,0);
+        bfm.send_uart(bfm.packet_0, bfm.packet_1);
+    endtask
+
 endclass : random_tpgen
 
 

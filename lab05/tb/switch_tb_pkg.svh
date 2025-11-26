@@ -38,12 +38,14 @@ package switch_tb_pkg;
     `include "scoreboard.svh"
     `include "base_tpgen.svh"
     `include "random_tpgen.svh"
-    `include "add_tpgen.svh"
+    `include "minmax_tpgen.svh"
+    `include "err_tpgen.svh"
     `include "env.svh"
     
     //------------------------------------------------------------------------------
     // test classes
     //------------------------------------------------------------------------------
     `include "random_test.svh"
-    `include "add_test.svh"
+    `include "minmax_test.svh"
+    `include "err_test.svh"
 endpackage

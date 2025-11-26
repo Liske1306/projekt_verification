@@ -1,0 +1,6 @@
+#e1(26Nov2025:23:47:01): source ./INCA_libs/env.d/env.history.26Nov2025_23_47_01
+s1(26Nov2025:23:47:01):  xrun -compile -l xrun_compile.log -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs +overwrite -nocopyright -coverage all -covoverwrite -covfile xrun_covfile.txt 
+#e2(26Nov2025:23:47:03): source ./INCA_libs/env.d/env.history.26Nov2025_23_47_03
+s2(26Nov2025:23:47:03):  xrun -elaborate -l xrun_elaborate.log -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs +overwrite -nocopyright -coverage all -covoverwrite -covfile xrun_covfile.txt 
+#e3(26Nov2025:23:47:08): source ./INCA_libs/env.d/env.history.26Nov2025_23_47_08
+s3(26Nov2025:23:47:08):  xrun -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs +overwrite -nocopyright -coverage all -covoverwrite -covfile xrun_covfile.txt +UVM_TESTNAME=random_test -l xrun_test_random_test.log 
