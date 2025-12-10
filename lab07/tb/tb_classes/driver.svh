@@ -1,0 +1,60 @@
+/*
+ Copyright 2013 Ray Salemi
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+class driver extends uvm_component;
+    `uvm_component_utils(driver)
+    
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
+    protected virtual switch_bfm bfm;
+    uvm_get_port #(input_transaction) packet_port;
+    
+//------------------------------------------------------------------------------
+// constructor
+//------------------------------------------------------------------------------
+    function new (string name, uvm_component parent);
+        super.new(name, parent);
+    endfunction : new
+
+//------------------------------------------------------------------------------
+// build phase
+//------------------------------------------------------------------------------
+    function void build_phase(uvm_phase phase);
+        if(!uvm_config_db #(virtual switch_bfm)::get(null, "*","bfm", bfm))
+            $fatal(1, "Failed to get BFM");
+        packet_port = new("packet_port",this);
+    endfunction : build_phase
+    
+//------------------------------------------------------------------------------
+// run phase
+//------------------------------------------------------------------------------
+    task run_phase(uvm_phase phase);
+        input_transaction inputs;
+
+        bfm.sin=1;
+        forever begin
+            packet_port.get(inputs);
+            //$display("driver");
+            //$display(inputs.convert2string());
+            bfm.rst_n=inputs.is_rst;
+            bfm.prog=inputs.is_prog;
+            bfm.send_uart(inputs.packet_0, inputs.packet_1);
+        end
+    endtask : run_phase
+    
+
+endclass : driver
+
